@@ -126,6 +126,64 @@ a:link, a:visited, a:hover, a:active {
     line-height: 1;
 }
 
+
+.heading {
+    padding: 10px 12px;
+    background: url('../images/bg-slash.gif');
+    letter-spacing: 1px;
+    font-size: 1.6rem;
+}
+.scroll-list {
+    margin-bottom: 30px;
+    list-style-type: none;
+
+    max-height: 220px;
+    overflow-y: auto;
+}
+.scroll-list .scroll-item a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    transition: background-color 0.1s;
+    font-size: 0;
+}
+.scroll-list .scroll-item:nth-of-type(even) a {
+    background: url('../images/bg-slash.gif');
+}
+.scroll-list .scroll-item a:hover {
+    background-color: #fafaf8;
+}
+.scroll-list .date {
+    display: inline-block;
+    width: 19%;
+    font-size: 1rem;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.scroll-list .category {
+    display: inline-block;
+    width: 8%;
+    font-size: 1rem;
+
+    border-radius: 5px;
+    background-color: #d03c56;
+    color: #fff;
+    text-align: center;
+    line-height:1.5;
+    letter-spacing:1px;
+}
+.scroll-list .title {
+    display: inline-block;
+    width: 73%;
+    padding-left: 15px;
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
 .slidemenu {
     float: right;
     width: 275px;
@@ -149,6 +207,6 @@ a:link, a:visited, a:hover, a:active {
     /*height: 100px;*/
 /*}*/
 .main, .sidemenu {
-    height: 500px;
+    /*height: 500px;*/
 }
 
