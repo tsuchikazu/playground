@@ -238,10 +238,35 @@ a:link, a:visited, a:hover, a:active {
     left: 0;
     width: 100%;
 }
-.slidemenu {
+
+.sidemenu {
     float: right;
     width: 275px;
 }
+
+.ranking {
+    margin-bottom: 30px;
+   list-style-type: none;
+}
+.ranking .ranking-item {
+    margin-top: 15px;
+}
+.ranking .ranking-item a {
+    display: block;
+    transition: opacity 0.15s;
+}
+.ranking .image {
+    width: 55px;
+    height: 55px;
+}
+.ranking .text {
+    display: inline-block;
+    width: 182px;
+    vertical-align: top;
+    color: #000;
+    line-height: 1.5;
+}
+
 .footer {
     width: 100%;
 }
@@ -254,7 +279,7 @@ a:link, a:visited, a:hover, a:active {
     display: none;
 }
 .header, .main, .sidemenu, .footer {
-    border: 1px solid #aaa;
+    /*border: 1px solid #aaa;*/
     /*background-color: #ccc;*/
 }
 /*.header, .footer {*/
