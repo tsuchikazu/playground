@@ -310,6 +310,25 @@ a:link, a:visited, a:hover, a:active {
     transform: rotate(-45deg);
 }
 
+.documents {
+    list-style-type: none;
+    margin: 13px 10px;
+}
+.documents .title {
+    border-left: solid;
+    border-width: 5px;
+    border-color: #d03c56;
+    padding: 0 7px;
+    font-size: 1.4rem;
+}
+.documents ul {
+    list-style-type: circle;
+    margin: 5px 20px;
+}
+.documents ul li {
+    margin: 15px;
+}
+
 .footer {
     width: 100%;
 }
