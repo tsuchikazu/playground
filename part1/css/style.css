@@ -251,6 +251,7 @@ a:link, a:visited, a:hover, a:active {
 }
 .ranking .ranking-item {
     margin-top: 15px;
+    position: relative;
 }
 .ranking .ranking-item a {
     display: block;
@@ -270,6 +271,9 @@ a:link, a:visited, a:hover, a:active {
     font-size: 1.2rem;
 }
 .ranking .order {
+    position: absolute;
+    top: -10px;
+    left: 35px;
     display: inline-block;
     width: 18px;
     height: 18px;
