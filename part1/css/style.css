@@ -263,6 +263,7 @@ a:link, a:visited, a:hover, a:active {
     height: 55px;
 }
 .ranking .text {
+    margin-left: 20px;
     display: inline-block;
     width: 182px;
     vertical-align: top;
