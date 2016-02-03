@@ -67,7 +67,6 @@ a:link, a:visited, a:hover, a:active {
     color: #fff;
     background-color: #d03c56;
 }
-
 .wrapper {
     width: 970px;
     margin: 30px auto 40px;
@@ -76,6 +75,168 @@ a:link, a:visited, a:hover, a:active {
     display: block;
     float: left;
     width: 660px;
+}
+
+.hot-topic {
+    display: block;
+    height: 300px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.15s;
+}
+.hot-topic:hover {
+    opacity: 0.85;
+}
+.hot-topic .image {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.hot-topic .content {
+    position: relative;
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 105px 25px 0;
+    background-color: #2d3d54;
+    line-height: 1.6;
+}
+.hot-topic .title {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: normal;
+}
+.hot-topic .desc {
+    color: #ddc;
+}
+.hot-topic .date {
+    position: absolute;
+    top: 60px;
+    left: 0;
+
+    width: 140px;
+    padding: 4px;
+    background-color: #fff;
+    color: #2d3d54;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+
+.heading {
+    padding: 10px 12px;
+    background: url('../images/bg-slash.gif');
+    letter-spacing: 1px;
+    font-size: 1.6rem;
+}
+.scroll-list {
+    margin-bottom: 30px;
+    list-style-type: none;
+
+    max-height: 220px;
+    overflow-y: auto;
+}
+.scroll-list .scroll-item a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    transition: background-color 0.1s;
+    font-size: 0;
+}
+.scroll-list .scroll-item:nth-of-type(even) a {
+    background: url('../images/bg-slash.gif');
+}
+.scroll-list .scroll-item a:hover {
+    background-color: #fafaf8;
+}
+.scroll-list .date {
+    display: inline-block;
+    width: 19%;
+    font-size: 1rem;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.scroll-list .category {
+    display: inline-block;
+    width: 8%;
+    font-size: 1rem;
+
+    border-radius: 5px;
+    background-color: #d03c56;
+    color: #fff;
+    text-align: center;
+    line-height:1.5;
+    letter-spacing:1px;
+}
+.scroll-list .title {
+    display: inline-block;
+    width: 73%;
+    padding-left: 15px;
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.article-box {
+    display: block;
+    width: 315px;
+    height:360px;
+    margin-bottom: 30px;
+
+    position: relative;
+    padding: 210px 15px 0;
+    box-shadow: opacity 0.15s;
+}
+.article-box:hover {
+    opacity: 0.8;
+}
+.article-box:nth-of-type(odd) {
+    float: left;
+}
+.article-box:nth-of-type(even) {
+    float: right;
+}
+.article-box .title {
+    margin-top: 30px;
+    color: #555;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+.article-box .desc {
+    margin-top: 5px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.article-box .date {
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+
+    display:block;
+    width: 160px;
+    padding: 4px;
+    background-color: #b5d264;
+    
+    color: #2d3d54;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.article-box .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 .slidemenu {
     float: right;
@@ -89,6 +250,9 @@ a:link, a:visited, a:hover, a:active {
     display:block;
     clear: both;
 }
+.hidden {
+    display: none;
+}
 .header, .main, .sidemenu, .footer {
     border: 1px solid #aaa;
     /*background-color: #ccc;*/
@@ -97,5 +261,6 @@ a:link, a:visited, a:hover, a:active {
     /*height: 100px;*/
 /*}*/
 .main, .sidemenu {
-    height: 500px;
+    /*height: 500px;*/
 }
+
