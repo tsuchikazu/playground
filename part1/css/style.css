@@ -312,21 +312,28 @@ a:link, a:visited, a:hover, a:active {
 
 .documents {
     list-style-type: none;
-    margin: 13px 10px;
+    margin: 10px 10px 30px;
 }
-.documents .title {
-    border-left: solid;
-    border-width: 5px;
-    border-color: #d03c56;
-    padding: 0 7px;
+.documents > li .title {
+    border-left: 5px solid #d03c56;
+    padding-left: 8px;
+    margin: 15px 0;
     font-size: 1.4rem;
 }
-.documents ul {
-    list-style-type: circle;
-    margin: 5px 20px;
+.documents > li + li {
+    margin-top: 25px;
 }
-.documents ul li {
+.documents > li ul {
+    list-style-type: none;
     margin: 15px;
+}
+.documents > li ul > li {
+    background: url('../images/arrow.gif') no-repeat left center;
+    margin: 15px;
+    padding-left: 10px;
+}
+.documents a:hover {
+    text-decoration: underline;
 }
 
 .footer {
