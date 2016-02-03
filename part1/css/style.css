@@ -274,16 +274,14 @@ a:link, a:visited, a:hover, a:active {
 .ranking .order {
     position: absolute;
     top: -10px;
-    left: 35px;
+    left: 45px;
     background-color: #ffffff;
     display: inline-block;
     width: 18px;
     height: 18px;
-    margin: 0 10px;
 
     border: 1px solid #ccc;
     color: #aaa;
-    vertical-align: 20px;
     text-align: center;
     font-weight: bold;
     line-height: 16px;
