@@ -275,6 +275,7 @@ a:link, a:visited, a:hover, a:active {
     position: absolute;
     top: -10px;
     left: 35px;
+    background-color: #ffffff;
     display: inline-block;
     width: 18px;
     height: 18px;
