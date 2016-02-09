@@ -29,7 +29,6 @@ a:link, a:visited, a:hover, a:active {
     border-radius: 5px;
     backgroud-color: #fff;
 }
-
 .item .image {
     display: block;
     width: 100%;
@@ -41,6 +40,7 @@ a:link, a:visited, a:hover, a:active {
     letter-spacing: 1px;
     font-family: "Trebuchet MS", "Hiragino Kaku Gothic ProN", Meiryo;
 }
+
 .item .category::before {
     content: '';
     display: inline-block;
@@ -48,10 +48,27 @@ a:link, a:visited, a:hover, a:active {
     width: 19px;
     height: 19px;
     border: 2px solid;
-    border-color: #000;
     border-radius: 50%;
     vertical-align: -5px;
 }
+
+.item-maindish,
+.item-maindish .category::before {
+    border-color: #FFC0CB;
+}
+.item-appetizer,
+.item-appetizer .category::before {
+    border-color: #76C047;
+}
+.item-column,
+.item-column.category::before {
+    border-color: #FFF100;
+}
+.item-breaktime,
+.item-breaktime .category::before {
+    border-color: #C1EFFF;
+}
+
 .item .description {
     margin: 10px;
     line-height: 1.5;
