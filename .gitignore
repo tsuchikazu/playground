@@ -89,3 +89,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+*.DS_Store
+dataset/*ubyte.gz
+dataset/*.pkl
