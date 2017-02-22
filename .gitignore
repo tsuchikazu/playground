@@ -92,3 +92,5 @@ ENV/
 *.DS_Store
 dataset/*ubyte.gz
 dataset/*.pkl
+
+MNIST_data
