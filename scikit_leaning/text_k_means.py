@@ -45,11 +45,20 @@ print(X)
 X = Normalizer(copy=False).fit_transform(X)
 print(X)
 
+clusters_num = 5
 km = KMeans(
-    n_clusters=2,
+    n_clusters=clusters_num,
     random_state=10
 )
 km.fit(X)
 
-print(km.labels_)
+labels = km.labels_
+result = {}
+for label in range(clusters_num):
+    result[label] = []
+for label, head in zip(labels, _header):
+    result[label].append(head)
 
+for label in range(clusters_num):
+    print(label)
+    print("\n".join(result[label]))
