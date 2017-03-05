@@ -6,20 +6,30 @@ x = tf.placeholder(tf.float32, shape=[None, 784])
 y_ = tf.placeholder(tf.float32, shape=[None, 10])
 
 def weight_variable(shape):
+    # ランダムで初期化
     initial = tf.truncated_normal(shape, stddev=0.1)
     return tf.Variable(initial)
 
 def bias_variable(shape):
+    # ちょっと正の初期値をつけるのは良い習慣
     initial = tf.constant(0.1, shape=shape)
     return tf.Variable(initial)
 
 def conv2d(x, W):
+    # x:インプット
+    # W: filter ４次元[filter_height, filter_width, in_channels, channel_multiplier] のテンソルを渡す
+    # strides は最初と最後は1にする。2個目が縦方向の進み幅。3個目が横方向の進み幅
+    # padding は 'SAME' or 'VALID' ゼロパディングを利用する場合はSAME。
     return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 
 def max_pool_2x2(x):
+    # 最大プーリング用の関数
+    # x: インプット
+    # プーリングサイズを指定する 3x3にしたい場合は[1, 3, 3, 1]とすればよい
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
                           strides=[1, 2, 2, 1], padding='SAME')
 
+# 5×5の 1channel を 32channel へ
 W_conv1 = weight_variable([5, 5, 1, 32])
 b_conv1 = bias_variable([32])
 x_image = tf.reshape(x, [-1,28,28,1])
@@ -57,7 +67,7 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 sess = tf.InteractiveSession()
 sess.run(tf.global_variables_initializer())
 
-for i in range(20000):
+for i in range(2000):
     batch = mnist.train.next_batch(50)
     if i%100 == 0:
         train_accuracy = accuracy.eval(feed_dict={
