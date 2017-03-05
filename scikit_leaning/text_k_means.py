@@ -2,18 +2,35 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.decomposition import TruncatedSVD
 from sklearn.preprocessing import Normalizer
+import MeCab
+
+def split_text(text):
+    tagger = MeCab.Tagger()
+    # なぜか1度parseしないとエラーになる
+    tagger.parse(text)
+    node = tagger.parseToNode(text)
+
+    words = []
+    while node:
+        pos = node.feature.split(",")[0]
+        words.append(node.surface)
+        node = node.next
+    return " ".join(words)
 
 _items = [
-    'とても おもしろくて 最高 に よかった！ 途中 で 笑い すぎた',
-    '笑った 面白い かった！',
-    '最高に 笑った ！',
-    '面白い 最高 だった',
+    'とてもおもしろくて最高に笑った！途中で笑いすぎた',
+    '笑った面白いかった！',
+    '最高に笑った！',
+    '面白い最高だった',
 
-    'おもしろく なかった 金 返せ',
-    'つまらん 金 の 無駄',
-    '最悪 な 映画 金 を 返して つまらん',
-    'おもしろくない つまらない 金 の 無駄 です 金 を返して。',
+    'おもしろくなかった金返せ',
+    'つまらん金の無駄',
+    '最悪な映画金を返してつまらん',
+    'おもしろくないつまらない金の無駄です金を返して。',
 ]
+print(_items)
+_items = list(map(split_text, _items))
+print(_items)
 
 vectorizer = TfidfVectorizer(
     use_idf=True
