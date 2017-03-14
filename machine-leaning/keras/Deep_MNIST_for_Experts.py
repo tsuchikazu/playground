@@ -53,7 +53,7 @@ input_shape = (img_rows, img_cols, 1)
 model.fit(X_train, Y_train, nb_epoch=1, batch_size=100, verbose=1)
 
 score = model.evaluate(X_test, Y_test, verbose=1)
-# 誤差とaccuracyが表示される
 print()
-# 90%ぐらい
+# 誤差とaccuracyが表示される
+# 99.44%ぐらい
 print(score)
