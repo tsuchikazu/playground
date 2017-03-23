@@ -90,3 +90,4 @@ ENV/
 .ropeproject
 
 MNIST_data
+node_modules
