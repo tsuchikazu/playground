@@ -91,3 +91,5 @@ ENV/
 
 MNIST_data
 node_modules
+.nyc_output
+coverage

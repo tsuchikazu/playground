@@ -1,0 +1,104 @@
+name: Continuous Integration
+on: push
+defaults:
+  run:
+    working-directory: github-actions
+
+jobs:
+  unit-test:
+    name: Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Set Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+      - name: Get NPM cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - name: Cache NPM
+        uses: actions/cache@v2.0.0
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+      - name: Install dependencies
+        run: npm ci
+      - name: Test
+        run: npm test
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Set Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+      - name: Get NPM cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - name: Cache NPM
+        uses: actions/cache@v2.0.0
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: GITHUB_TOKEN secret test
+        run: |
+          curl \
+          --request GET \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'
+      - run: echo "${{ toJson(github) }}"
+  container-lint:
+    runs-on: ubuntu-latest
+    container:
+      image: node:12.14.1-stretch
+      env:
+        NODE_ENV: development
+      ports:
+        - 8080
+      options: --cpus 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Set Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+  service-container:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12.1
+        env:
+          POSTGRES_USER: pguser
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      nginx:
+        image: nginx:1.17.8
+        ports:
+          - 8080
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - run: echo "${{ toJson(job.services.nginx) }}"
+      - run: echo "${{ toJson(job.services.postgres) }}"
